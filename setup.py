@@ -24,7 +24,7 @@ setup(
     description=DESCRIPTION,
     license="MIT",
     url="https://github.com/overfly83/spacy",
-    package_dir={'': 'src'},
+    package_dir={'': '.'},
     packages=[],
     include_package_data=True,
     install_requires=REQUIREMENTS,
