@@ -1,12 +1,13 @@
 from django.http import HttpResponse
-import en_core_web_sm
-nlp = en_core_web_sm.load()
-doc = nlp(u'This is a sentence.')
+import en_core_web_lg
+nlp = en_core_web_lg.load()
 
-for token in doc:
-    print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,
-          token.shape_, token.is_alpha, token.is_stop)
 
-def index(request):
-    print(request)
+def parse(request):
+    txt_to_parse = request.GET.get('txt')
+    doc = nlp(txt_to_parse)
+    print(doc.ents)
+    for ent in doc.ents:
+        print(ent.text, ent.start_char, ent.end_char, ent.label_, '-----!!!!!!!!!')
+    print(doc, "---test")
     return HttpResponse(doc)
