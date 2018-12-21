@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 from os.path import abspath, join, dirname
 
 CURDIR = dirname(abspath(__file__))
@@ -7,7 +7,8 @@ with open(join(CURDIR, 'version.py'),'r') as f:
     exec(f.read())
 
 DESCRIPTION = """
-An project to test spacy model.
+Integration NLQ technology with SAC system so that user may control
+SAC in natural languages via voice control.
 """[1:-1]
 
 def read(fname):
@@ -17,7 +18,7 @@ with open(join(CURDIR, 'REQUIREMENTS.txt')) as f:
     REQUIREMENTS = f.read().splitlines()
 print(REQUIREMENTS)
 setup(
-    name="an_example_pypi_project",
+    name="Spacy integration with SAC",
     version=VERSION,
     author="Edward Zhang",
     author_email="edward.zhang@sap.com",
@@ -25,7 +26,7 @@ setup(
     license="MIT",
     url="https://github.com/overfly83/spacy",
     package_dir={'': '.'},
-    packages=[],
+    packages=find_packages(),
     include_package_data=True,
     install_requires=REQUIREMENTS,
     platforms='any'
