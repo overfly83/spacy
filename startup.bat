@@ -1,0 +1,1 @@
+call env\Scripts\python spacyrest\manage.py runserver 0.0.0.0:8008

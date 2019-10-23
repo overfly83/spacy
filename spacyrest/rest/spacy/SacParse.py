@@ -3,6 +3,7 @@ from spacy import displacy
 from spacy.symbols import VERB, nsubj, root, dobj, prep, pobj, nn
 import json
 
+
 class SacParse:
     nlp = None
     spacy_model_name = 'en_core_web_sm'
@@ -33,10 +34,10 @@ class SacParse:
         return token.strip()
 
     def entity_recognition(self, document):
-        labels = set([ent.label_ for ent in document.ents])
-        for label in labels:
-            entities = [self._cleanup(e.string, lower=False) for e in document.ents if label == e.label_]
-            return json.dumps({'label': label, 'data': entities})
+        entities = list()
+        for ent in document.ents:
+            entities.append({'label': ent.label_, 'data': self._cleanup(ent.string)})
+        return entities
 
     def generate_verb_dobj(self, document):
         verb_dobj = list([tk, tk.root.head] for tk in document.noun_chunks if tk.root.dep == dobj or tk.root.dep == pobj)
