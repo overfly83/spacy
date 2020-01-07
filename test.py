@@ -5,7 +5,7 @@ import json
 
 if __name__ == '__main__':
     print(u'=========================================')
-    sentence = u'Increase glasses growth by 10% in Planning version in 2019.'
+    sentence = u'What if I increase milk rate by 10% in 2020.'
     print(sentence)
     sp = SacParse()
     doc = sp.read_document(sentence)
@@ -14,7 +14,26 @@ if __name__ == '__main__':
     if ents_json:
         print(ents_json)
     print(sp.generate_verb_dobj(doc))
-
+    print(u'=========================================')
+    sentence = u'let\'s try if increase the candy rate by 10% in 2020.'
+    print(sentence)
+    sp = SacParse()
+    doc = sp.read_document(sentence)
+    ents_json = sp.entity_recognition(doc)
+    verb_dobj = sp.generate_verb_dobj(doc)
+    if ents_json:
+        print(ents_json)
+    print(sp.generate_verb_dobj(doc))
+    print(u'=========================================')
+    sentence = u'Let\s go to planning.'
+    print(sentence)
+    sp = SacParse()
+    doc = sp.read_document(sentence)
+    ents_json = sp.entity_recognition(doc)
+    verb_dobj = sp.generate_verb_dobj(doc)
+    if ents_json:
+        print(ents_json)
+    print(sp.generate_verb_dobj(doc))
     # print(u'=========================================')
     # sentence = u'Please help me quickly lock the cell.'
     # print(sentence)
