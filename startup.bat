@@ -1,1 +1,1 @@
-call env\Scripts\python spacyrest\manage.py runserver 0.0.0.0:8008
+call env\Scripts\python spacyrest\manage.py runserver 0.0.0.0:8000
