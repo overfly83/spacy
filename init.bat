@@ -1,4 +1,6 @@
 @echo off
+set http_proxy=http://proxy.van.sap.corp:8080
+set https_proxy=http://proxy.van.sap.corp:8080
 IF NOT EXIST env (
 	echo "Install virtual environment."
 	pip3 install virtualenv
