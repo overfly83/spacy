@@ -36,7 +36,7 @@ class SacParse:
     def entity_recognition(self, document):
         entities = list()
         for ent in document.ents:
-            entities.append({'label': ent.label_, 'data': self._cleanup(ent.string)})
+            entities.append({'label': ent.label_, 'data': self._cleanup(ent.text)})
         return entities
 
     def generate_verb_dobj(self, document):
